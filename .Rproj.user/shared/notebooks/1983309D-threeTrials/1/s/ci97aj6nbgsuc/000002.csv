@@ -1,0 +1,3 @@
+"0","gringoTab=xtabs(~infected + group, data=gringo,exclude = ""NA"")"
+"0","moonUngTab=xtabs(~infected + group, data=moonUng,exclude = ""NA"")"
+"0","zabweTab=xtabs(~infected + group, data=zabwe,exclude = ""NA"")"
