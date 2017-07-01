@@ -1,0 +1,2 @@
+# AidesTrials
+Three new preventative aides drugs were tested in clinical trials in 2015. The trial designs were modeled after the famous RV_144 Aides Trials in Tailand in 2009.  Analyze and report on the apparent effectiveness of the three different drugs. Does sex of the participant seem to be a factor for any of the drugs? Which if any drug would you recommend or tell to avoid for a 32 year old female?  How about a 27 year old male?
