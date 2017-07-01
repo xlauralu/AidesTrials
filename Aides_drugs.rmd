@@ -9,10 +9,9 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 require(tigerstats)
 require(dplyr)
-source("datagen.R")
-#Scarolina<-read.csv(file="south_carolina_aides.csv",header=TRUE)
-#korea<-read.csv(file="korea_aides.csv",header=TRUE)
-#cenAfrica<-read.csv(file="central_africa_aides.csv",header=TRUE)
+Scarolina<-read.csv(file="south_carolina_aides.csv",header=TRUE)
+korea<-read.csv(file="korea_aides.csv",header=TRUE)
+cenAfrica<-read.csv(file="central_africa_aides.csv",header=TRUE)
 ```
 
 #Instructions
@@ -24,99 +23,17 @@ Three new preventative aides drugs were tested in clinical trials in 2015. The t
 
 We will subset the data by sex to see if the drug is sex specific.
 
-```{r}
-Scarolina <- df1
-scm <- Scarolina %>% filter(sex=="M")
-posn_d <- position_dodge(width = 0.6)
-
-ggplot(data=scm, aes(x = infected, fill = group)) +
-  geom_bar(position = posn_d,  alpha = 0.8) +
-  ggtitle("Male South Carolina")
-
-chisqtestGC(~ infected + group, data=scm)
-
-scf <- Scarolina %>% filter(sex=="F")
-posn_d <- position_dodge(width = 0.6)
-
-ggplot(data=scf, aes(x = infected, fill = group)) +
-  geom_bar(position = posn_d,  alpha = 0.8) +
-   ggtitle("Female South Carolina")
-
-chisqtestGC(~ infected + group, data=scf)
-
-ggplot(data=Scarolina, aes(x = infected, fill = group)) +
-  geom_bar(position = posn_d,  alpha = 0.8) +
-   ggtitle("All South Carolina")
-
-chisqtestGC(~ infected + group, data=Scarolina)
-
-
-  
-```
 
 # Central Africa
 
 We will subset the data by sex to see if the drug is sex specific.
 
-```{r}
-cenAfrica <- df2
-CAm <- cenAfrica %>% filter(sex=="M")
-posn_d <- position_dodge(width = 0.6)
 
-ggplot(data=CAm, aes(x = infected, fill = group)) +
-  geom_bar(position = posn_d,  alpha = 0.8) +
-  ggtitle("Male Central Africa")
-
-chisqtestGC(~ infected + group, data=CAm)
-
-CAf <- cenAfrica %>% filter(sex=="F")
-posn_d <- position_dodge(width = 0.6)
-
-ggplot(data=CAf, aes(x = infected, fill = group)) +
-  geom_bar(position = posn_d,  alpha = 0.8) +
-   ggtitle("Female Central Africa")
-
-chisqtestGC(~ infected + group, data=CAf)
-
-ggplot(data=cenAfrica, aes(x = infected, fill = group)) +
-  geom_bar(position = posn_d,  alpha = 0.8) +
-   ggtitle("All Central Africa")
-
-chisqtestGC(~ infected + group, data=cenAfrica)
-  
-```
 
 # Korea
 
 We will subset the data by sex to see if the drug is sex specific.
 
-```{r}
-korea <- df3
-KORm <- korea %>% filter(sex=="M")
-posn_d <- position_dodge(width = 0.6)
-
-ggplot(data=KORm, aes(x = infected, fill = group)) +
-  geom_bar(position = posn_d,  alpha = 0.8) +
-  ggtitle("Male korea")
-
-chisqtestGC(~ infected + group, data=KORm)
-
-KORf <- korea %>% filter(sex=="F")
-posn_d <- position_dodge(width = 0.6)
-
-ggplot(data=KORf, aes(x = infected, fill = group)) +
-  geom_bar(position = posn_d,  alpha = 0.8) +
-   ggtitle("Female Korea")
-
-chisqtestGC(~ infected + group, data=KORf)
-
-ggplot(data=korea, aes(x = infected, fill = group)) +
-  geom_bar(position = posn_d,  alpha = 0.8) +
-   ggtitle("All Korea")
-
-chisqtestGC(~ infected + group, data=korea)
-  
-```
 
 
 
