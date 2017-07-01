@@ -1,5 +1,0 @@
-"0","knitr::opts_chunk$set(echo = TRUE)"
-"0","require(tigerstats)"
-"0","Scarolina<-read.csv(file=""south_carolina_aides.csv"",header=TRUE)"
-"0","korea<-read.csv(file=""korea_aides.csv"",header=TRUE)"
-"0","cenAfrica<-read.csv(file=""central_africa_aides.csv"",header=TRUE)"
