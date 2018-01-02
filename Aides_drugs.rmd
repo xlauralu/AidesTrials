@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 require(tigerstats)
 require(dplyr)
-#Genvoyabub <-read.csv(file="Genvoyabub.csv",header=TRUE)
+Genvoyabub <-read.csv(file="Genvoyabub.csv",header=TRUE)
 abacavirinol<-read.csv(file="abacavirinol.csv",header=TRUE)
 Atriplavast<-read.csv(file="Atriplavast.csv",header=TRUE)
 ```
