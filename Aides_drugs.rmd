@@ -9,9 +9,9 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 require(tigerstats)
 require(dplyr)
-Scarolina<-read.csv(file="south_carolina_aides.csv",header=TRUE)
-korea<-read.csv(file="korea_aides.csv",header=TRUE)
-cenAfrica<-read.csv(file="central_africa_aides.csv",header=TRUE)
+#Genvoyabub <-read.csv(file="Genvoyabub.csv",header=TRUE)
+abacavirinol<-read.csv(file="abacavirinol.csv",header=TRUE)
+Atriplavast<-read.csv(file="Atriplavast.csv",header=TRUE)
 ```
 
 #Instructions
@@ -19,18 +19,18 @@ cenAfrica<-read.csv(file="central_africa_aides.csv",header=TRUE)
 Three new preventative aides drugs were tested in clinical trials in 2015. The trial designs were modeled after the famous RV_144 Aides Trials in Tailand in 2009.  Analyze and report on the apparent effectiveness of the three different drugs. Does sex of the participant seem to be a factor for any of the drugs?
 
 
-# South Carolina
+# Genvoyabub
 
 We will subset the data by sex to see if the drug is sex specific.
 
 
-# Central Africa
+# Atriplavast
 
 We will subset the data by sex to see if the drug is sex specific.
 
 
 
-# Korea
+# abacavirinol
 
 We will subset the data by sex to see if the drug is sex specific.
 
