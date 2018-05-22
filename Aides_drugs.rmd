@@ -34,7 +34,15 @@ We will subset the data by sex to see if the drug is sex specific.
 
 We will subset the data by sex to see if the drug is sex specific.
 
+```{r}
+Ab<-abacavirinol
+View(Ab)
+```
 
+```{r}
+Absex<-xtabs(~infected+group,data=Ab)
+Absex
+```
 
 
 
