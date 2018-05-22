@@ -22,7 +22,22 @@ Three new preventative aides drugs were tested in clinical trials in 2015. The t
 # Genvoyabub
 
 We will subset the data by sex to see if the drug is sex specific.
+```{r}
+Gb<-Genvoyabub
+View(Gb)
+```
 
+```{r}
+Gbsex<-xtabs(~infected+group,data=Gb)
+Gbsex
+```
+
+```{r}
+barchartGC(Gbsex,type = "percent", main= "Genvoyabub", xlab= "Group")
+chisqtestGC(Gbsex, graph = TRUE)
+colPerc(Gbsex)
+fisher.test(Gbsex)
+```
 
 # Atriplavast
 
