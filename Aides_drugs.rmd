@@ -36,13 +36,90 @@ We will subset the data by sex to see if the drug is sex specific.
 
 ```{r}
 Ab<-abacavirinol
-View(Ab)
+#View(Ab)
 ```
 
 ```{r}
 Absex<-xtabs(~infected+group,data=Ab)
 Absex
 ```
+```{r}
+barchartGC(Absex,type="percent")
+```
+  
+  There isn't enough evidence to reject the null hypothesis because the above chart shows no difference in those who had aids versus those who didn't. They appear to be independent. The two groups displaying drugs vs placebos is basically even, showing little to no difference.
+
+```{r}
+rowPerc(Absex)
+colPerc(Absex)
+```
+The two drugs appear to be within the same distrbution, which is what you'd expect if it was independent. The percentages above are almost even with eachother. 
+
+```{r}
+chisqtestGC(Absex)
+```
+There isn't any evidence to reject the null hypothesis, since the pvalue is 0.8942 meaning you'd expect this about 90% of the time, if the null hypothesis was true.   
+
+
+Now we're going to view the differences evident in the male population. I'm going to use the dplyr command in order to separate men from women.
+
+```{r}
+library(dplyr)
+Abmen<- filter(Ab,sex=="M")
+```
+
+```{r}
+AbmenTable<-xtabs(~infected+group,data=Abmen)
+AbmenTable
+``` 
+
+```{r}
+barchartGC(AbmenTable,type="percent")
+```
+  
+  When men take the drug to prevent aids, they appear to be getting aids at a higher rate and it appears to be working opposite. However, the people who don't have aids would be at roughly the same amount in either the drug or placebo group. It casts a doubt that the drug isn't independent, and their relatiionship is backwards of what's expected.
+
+```{r}
+rowPerc(AbmenTable)
+colPerc(AbmenTable)
+```
+By looking at the chart, there appears to be a relationship to the drug based on the above values differing from about 60 percent to 40. 
+
+```{r}
+chisqtestGC(AbmenTable)
+```
+The pvalue is at 0.0926, the significance is at the 90% level while we're looking for the 95% level. 
+
+Now, we're going to look at the women in comparison to the men. I'm going to use the dplyr command in order to distinguish the women. 
+
+```{r}
+library(dplyr)
+Abwomen<-filter(Ab,sex=="F")
+```
+```{r}
+AbwomenTable<-xtabs(~infected+group,data=Abwomen)
+AbwomenTable
+```
+
+```{r}
+barchartGC(AbwomenTable,type="percent")
+```
+  
+  This appears to be correct and working, because of the significant differences in those who contracted aids while on the drug versus a placebo, at a rate of about 40 to 60. No matter what happens, there isn't typically many left over who get aids so when we look at those who didn't contract aids we still get about half.   
+
+```{r}
+rowPerc(AbwomenTable)
+colPerc(AbwomenTable)
+```
+The above shows the percentage differences in those who contracted aids versus those who didn't, when looking at the percentages at 38% and 61%.   
+
+```{r}
+chisqtestGC(AbwomenTable)
+```
+Since the pvalue is so low (0.0264) and under 0.50%, this can help us accept the idea to reject the null hypothesis.
+
+
+
 
 
 
