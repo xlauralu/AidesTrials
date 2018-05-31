@@ -30,13 +30,89 @@ We will subset the data by sex to see if the drug is sex specific.
 
 ```{r}
 At<- Atriplavast
-View(At)
+#View(At)
 ```
 
 ```{r}
 Atsex<-xtabs(~infected+group,data=At)
 Atsex
 ```
+
+```{r}
+barchartGC(Atsex,type="percent")
+```
+
+  According to the above chart, there is a noteable difference in those who have aids and were given the drug Atriplast, but only by about 10% since the drug is at 45 while the placebo is at about 55.
+  
+```{r}
+rowPerc(Atsex)
+colPerc(Atsex)
+```
+The difference in 44% to 55% is shown above, yet isn't strong enough since it only is about 9% apart. 
+
+```{r}
+chisqtestGC(Atsex)
+```
+With the pvalue at 0.0699, we would expect something like this to happen 0.0699 if the null hypothesis were true. It's not sufficient evidence to reject the null hypothesis.
+
+Next, I'm going to use the dplyr tool in order to separate the men apart from the women.
+
+```{r}
+library(dplyr)
+Atmen<-filter(At,sex=="M")
+```
+```{r}
+AtmenTable<-xtabs(~infected+group,data=Atmen)
+AtmenTable
+```
+
+
+```{r}
+barchartGC(AtmenTable,type="percent")
+```
+  
+  The drug Atriplast appears to be effective, as this is shown in the vast difference in the left to the right column of aids patients who take the drug versus the placebo. The difference is at almost half, signaling its significance.
+
+```{r}
+rowPerc(AtmenTable)
+colPerc(AtmenTable)
+```
+We can note the difference at more than half, when men take the drug as opposed to the placebo. It appears to be substantial.
+
+```{r}
+chisqtestGC(AtmenTable)
+```
+We reject the null hypothesis since it's so extremely low, at almost 0.
+
+Now, we will once again use the dplyr command in order to view just women.
+```{r}
+library(dplyr)
+Atwomen<-filter(At,sex=="F")
+``` 
+```{r}
+AtwomenTable<-xtabs(~infected+group,data=Atwomen)
+AtwomenTable
+```
+
+```{r}
+barchartGC(AtwomenTable,type="percent")
+```
+  
+  The above chart shows how the drug doesn't work for women, because of the difference of the drug for those with aids at over 60% while the placebo is way lower at less than 40%.
+  
+```{r}
+rowPerc(AtwomenTable)
+colPerc(AtwomenTable)
+```
+We can now see the difference in the drug, which is at 65% compared to the placebo at 34%. The difference of 31% displays that the drug isn't working for women.
+
+```{r}
+chisqtestGC(AtwomenTable)
+```
+With the p-value so low at 0.0066, we reject the null hypothesis for women taking Atriplavast.
+
+
+
 
 # abacavirinol
 
