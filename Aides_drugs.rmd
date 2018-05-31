@@ -22,7 +22,84 @@ Three new preventative aides drugs were tested in clinical trials in 2015. The t
 # Genvoyabub
 
 We will subset the data by sex to see if the drug is sex specific.
+```{r}
+Gb<-Genvoyabub
+#View(Gb)
+```
 
+```{r}
+Gbsex<-xtabs(~infected+group,data=Gb)
+Gbsex
+```
+
+```{r}
+barchartGC(Gbsex,type="percent")
+```
+  
+  According to the above chart, we can see the difference in those who have aids that take the drug versus those who take the placebo isn't far off. It seems to be working as the placebo is higher. 
+  
+```{r}
+rowPerc(Gbsex)
+colPerc(Gbsex)
+```
+ We can see the numbers for those who took the drug, at 47% versus the placebo at 52%. Since they're so close we'd reject the idea that theres any statistical significance.
+ 
+```{r}
+chisqtestGC(Gbsex)
+```
+ Since the pvalue is barely above .50%, we wouldn't completely reject the null hypothesis for the drug Genvoyabub.
+ 
+ Now, we will use the dplyr command to first view the differences in men. 
+```{r}
+library(dplyr)
+Gbmen<- filter(Gb,sex=="M")
+```
+```{r}
+GbmenTable<-xtabs(~infected+group,data=Gbmen)
+GbmenTable
+```
+```{r}
+barchartGC(GbmenTable,type="percent")
+```
+  
+  According to the above chart, those with aids who took the drug versus the placebo are at almost the same amount, leading us to believe the drug Genvoyabub isn't working for men.
+  
+```{r}
+rowPerc(GbmenTable)
+colPerc(GbmenTable)
+```
+Since the numbers of men who took the drug versus the placebo are basically the same, we see theres no valid statistical significance in administering the drug.
+
+```{r}
+chisqtestGC(GbmenTable)
+```
+With the p-value at 1, we would accept the null hypothesis since it's the highest it could get in order to prove statistical significance.
+
+Next, lets use the dplyr command again to view the differences in women using Genvoyabub.
+```{r}
+library(dplyr)
+Gbwomen<-filter(Gb,sex=="F")
+```
+```{r}
+GbwomenTable<-xtabs(~infected+group,data=Gbwomen)
+GbwomenTable
+```
+```{r}
+barchartGC(GbwomenTable,type="percent")
+```
+
+  The drug Genvoyabub appears to be working for women as the placebo is a bit higher than the drug itself, even though only by a couple percent.
+
+```{r}
+rowPerc(GbwomenTable)
+colPerc(GbwomenTable)
+```
+Here we can see the difference at only about 7% in women who took the drug versus the placebo. It isn't valid since more women got aids who had taken the placebo, we can note that Genvoyabub does work for women.
+
+```{r}
+chisqtestGC(GbwomenTable)
+```
+With the pvalue at about half, 0.5055%, we wouldnt reject th null hypothesis since it seems to be valid and supported. 
 
 # Atriplavast
 
